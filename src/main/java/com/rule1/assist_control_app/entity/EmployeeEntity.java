@@ -10,7 +10,7 @@ import java.time.Period;
 public class EmployeeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "employee_id")
     private Long employeeId;
 
