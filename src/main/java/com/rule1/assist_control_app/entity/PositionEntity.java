@@ -14,8 +14,7 @@ public class PositionEntity {
     @Column(name = "position_type")
     private String positionType;
 
-    public PositionEntity(Long positionId, String positionType) {
-        this.positionId = positionId;
+    public PositionEntity(String positionType) {
         this.positionType = positionType;
     }
 
@@ -25,10 +24,6 @@ public class PositionEntity {
 
     public Long getPositionId() {
         return positionId;
-    }
-
-    public void setPositionId(Long positionId) {
-        this.positionId = positionId;
     }
 
     public String getPositionType() {

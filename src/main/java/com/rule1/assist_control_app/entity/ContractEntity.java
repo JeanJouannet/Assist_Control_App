@@ -14,8 +14,7 @@ public class ContractEntity {
     @Column(name = "contract_type")
     private String contractType;
 
-    public ContractEntity(Long contractId, String contractType) {
-        this.contractId = contractId;
+    public ContractEntity(String contractType) {
         this.contractType = contractType;
     }
 
@@ -30,9 +29,6 @@ public class ContractEntity {
         return contractType;
     }
 
-    public void setContractId(Long contractId) {
-        this.contractId = contractId;
-    }
 
     public void setContractType(String contractType) {
         this.contractType = contractType;

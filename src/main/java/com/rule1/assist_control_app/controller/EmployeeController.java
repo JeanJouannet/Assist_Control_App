@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//TODO: Terminar el Controller, inyectar dependencias.//
 @RestController
 @RequestMapping("/Assist_Control/")
 public class EmployeeController {
@@ -25,8 +24,22 @@ public class EmployeeController {
         return ResponseEntity.ok(employeeService.getAllEmployees());
     }
 
+    @GetMapping("/getEmployeesByContract/{contract}")
+    public ResponseEntity<List<EmployeeDTO>> getAllEmployeesByContract(@PathVariable("contract") String contract) {
+        return ResponseEntity.ok(employeeService.getEmployeeByContract(contract));
+    }
+
+    @GetMapping("/getEmployeesByPosition/{position}")
+    public ResponseEntity<List<EmployeeDTO>> getAllEmployeesByPosition(@PathVariable("position") String position) {
+        return ResponseEntity.ok(employeeService.getEmployeeByPosition(position));
+    }
+
+
     @PostMapping("/addEmployee")
     public ResponseEntity<EmployeeEntity> saveEmployee(@RequestBody EmployeeDTO employeeDTO) {
         return ResponseEntity.ok(employeeService.saveEmployee(employeeDTO));
     }
+
+
+
 }
