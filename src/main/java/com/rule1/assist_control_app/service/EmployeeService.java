@@ -1,8 +1,8 @@
 package com.rule1.assist_control_app.service;
 
-import com.rule1.assist_control_app.dto.BuildEntityEmployee;
+import com.rule1.assist_control_app.dto_entity_mappers.BuildEntityEmployee;
 import com.rule1.assist_control_app.dto.EmployeeDTO;
-import com.rule1.assist_control_app.dto.EmployeeDTOMapper;
+import com.rule1.assist_control_app.dto_entity_mappers.EmployeeDTOMapper;
 import com.rule1.assist_control_app.entity.EmployeeEntity;
 import com.rule1.assist_control_app.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
