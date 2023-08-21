@@ -1,6 +1,6 @@
 package com.rule1.assist_control_app.service;
 
-import com.rule1.assist_control_app.dto_entity_mappers.BuildEntityEmployee;
+import com.rule1.assist_control_app.dto_entity_mappers.BuildEmployeeEntity;
 import com.rule1.assist_control_app.dto.EmployeeDTO;
 import com.rule1.assist_control_app.dto_entity_mappers.EmployeeDTOMapper;
 import com.rule1.assist_control_app.entity.EmployeeEntity;
@@ -17,11 +17,11 @@ public class EmployeeService {
     private final EmployeeRepository repository;
     private final EmployeeDTOMapper employeeDTOMapper;
 
-    private final BuildEntityEmployee buildEntityEmployee;
-    public EmployeeService(EmployeeRepository repository, EmployeeDTOMapper employeeDTOMapper, BuildEntityEmployee buildEntityEmployee) {
+    private final BuildEmployeeEntity buildEmployeeEntity;
+    public EmployeeService(EmployeeRepository repository, EmployeeDTOMapper employeeDTOMapper, BuildEmployeeEntity buildEmployeeEntity) {
         this.repository = repository;
         this.employeeDTOMapper = employeeDTOMapper;
-        this.buildEntityEmployee = buildEntityEmployee;
+        this.buildEmployeeEntity = buildEmployeeEntity;
     }
 
     public List<EmployeeDTO> getAllEmployees() {
@@ -32,7 +32,7 @@ public class EmployeeService {
     }
 
     public EmployeeEntity saveEmployee(EmployeeDTO employeeDTO) {
-        return repository.save(buildEntityEmployee.buildEmployee(employeeDTO));
+        return repository.save(buildEmployeeEntity.buildEmployee(employeeDTO));
     }
 
     public List<EmployeeDTO> getEmployeeByContract(String contractType) {

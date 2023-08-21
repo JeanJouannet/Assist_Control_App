@@ -32,6 +32,7 @@ export default function InsertForm() {
     }, [])
 
     const submitForm = (e) => {
+        e.preventDefault()
         const formData = new FormData(e.target)
         const payload = Object.fromEntries(formData)
         console.log({payload})
@@ -53,8 +54,6 @@ export default function InsertForm() {
            <form onSubmit={submitForm}>
                <div>
                <h2>Agregar empleados</h2>
-               {/*<p>Campos requeridos son seguidos de un*/}
-               {/*    <strong><span aria-label="required"> *</span></strong>.</p>*/}
                </div>
                <div>
                    <div>

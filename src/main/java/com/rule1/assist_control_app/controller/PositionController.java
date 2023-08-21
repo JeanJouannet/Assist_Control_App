@@ -1,12 +1,10 @@
 package com.rule1.assist_control_app.controller;
 
 import com.rule1.assist_control_app.dto.PositionDTO;
+import com.rule1.assist_control_app.entity.PositionEntity;
 import com.rule1.assist_control_app.service.PositionService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,6 +18,12 @@ public class PositionController {
         this.positionService = positionService;
     }
 
+
+    @CrossOrigin
+    @PostMapping("/saveNewPosition")
+    public ResponseEntity<PositionEntity> saveNewPosition (@RequestBody PositionDTO positionDTO) {
+        return ResponseEntity.ok(positionService.saveNewPosition(positionDTO));
+    }
     @CrossOrigin
     @GetMapping("/positions")
     public ResponseEntity<List<PositionDTO>> positions() {

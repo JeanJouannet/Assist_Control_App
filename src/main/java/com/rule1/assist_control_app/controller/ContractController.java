@@ -1,12 +1,10 @@
 package com.rule1.assist_control_app.controller;
 
 import com.rule1.assist_control_app.dto.ContractDTO;
+import com.rule1.assist_control_app.entity.ContractEntity;
 import com.rule1.assist_control_app.service.ContractService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,6 +16,12 @@ public class ContractController {
 
     public ContractController(ContractService contractService) {
         this.contractService = contractService;
+    }
+
+    @CrossOrigin
+    @PostMapping("/saveNewContract")
+    public ResponseEntity<ContractEntity> saveNewContract(@RequestBody ContractDTO contractDTO) {
+        return ResponseEntity.ok(contractService.saveNewContract(contractDTO));
     }
 
     @CrossOrigin
