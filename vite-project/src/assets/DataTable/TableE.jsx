@@ -62,6 +62,7 @@ export default function TableE() {
 
     return (
         <div>
+            <h2>Mostrar empleados</h2>
             <button onClick={handleButtonClick}>Buscar todos los empleados</button>
 
                 <span>Filtrar por contrato: </span>

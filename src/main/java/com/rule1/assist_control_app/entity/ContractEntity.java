@@ -14,9 +14,6 @@ public class ContractEntity {
     @Column(name = "contract_type")
     private String contractType;
 
-    @Column(name = "salary")
-    private Integer salary;
-
     public ContractEntity(String contractType) {
         this.contractType = contractType;
     }
@@ -37,13 +34,6 @@ public class ContractEntity {
         this.contractType = contractType;
     }
 
-    public Integer getSalary() {
-        return salary;
-    }
-
-    public void setSalary(Integer salary) {
-        this.salary = salary;
-    }
 }
 
 

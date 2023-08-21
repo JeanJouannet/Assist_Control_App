@@ -6,7 +6,6 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 public record ContractDTO(
-        @NotNull @NotEmpty String contractType,
-        @NotNull @Min(0) @Max(99_999_999) Integer salary
+        @NotNull @NotEmpty String contractType
 ) {
 }

@@ -21,6 +21,7 @@ public class EmployeeDTOMapper implements Function<EmployeeEntity, EmployeeDTO> 
                 employeeEntity.getBirthday(),
                 employeeEntity.getAge(),
                 employeeEntity.getNationality(),
+                employeeEntity.getSalary(),
                 employeeEntity.getPosition(),
                 employeeEntity.getContract()
         );

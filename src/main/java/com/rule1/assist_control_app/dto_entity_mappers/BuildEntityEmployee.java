@@ -13,9 +13,11 @@ public class BuildEntityEmployee {
                 employeeDTO.surname(),
                 employeeDTO.secondSurname(),
                 employeeDTO.phoneNumber(),
+                employeeDTO.email(),
                 employeeDTO.birthday(),
                 employeeDTO.age(),
                 employeeDTO.nationality(),
+                employeeDTO.salary(),
                 employeeDTO.position(),
                 employeeDTO.contract()
                 );

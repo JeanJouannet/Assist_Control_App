@@ -13,11 +13,12 @@ public record EmployeeDTO(
         @NotEmpty @NotNull String name,
         @NotEmpty @NotNull String surname,
         String secondSurname,
-        @Email @NotNull String email,
+        @Email @NotNull  String email,
         @Size(max = 15) String phoneNumber,
         LocalDate birthday,
         @NotNull @Min(18) Integer age,
         @NotEmpty @NotNull String nationality,
+        @NotNull @Min(0) @Max(99_999_999) Integer salary,
         @NotNull PositionEntity position,
         @NotNull ContractEntity contract
 

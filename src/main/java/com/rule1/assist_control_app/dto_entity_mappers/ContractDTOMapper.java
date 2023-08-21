@@ -13,7 +13,6 @@ public class ContractDTOMapper implements Function<ContractEntity, ContractDTO> 
 
     @Override
     public ContractDTO apply(ContractEntity contractEntity) {
-        return new ContractDTO(contractEntity.getContractType(),
-                contractEntity.getSalary());
+        return new ContractDTO(contractEntity.getContractType());
     }
 }
