@@ -46,7 +46,6 @@ export default function TableE() {
     }, [])
 
     const handleButtonClick = () => {
-        // Cambia la ruta aquí según tus necesidades
         setRoute("http://localhost:8080/Assist_Control/employees");
     };
 
@@ -77,7 +76,7 @@ export default function TableE() {
 
             <span>Filtrar por posicion: </span>
             <select onChange={(p) => handleFilterPositionClick(p.target.value)}>
-                <option value="">Filtrar por posicion</option>
+                <option>Filtrar por posicion</option>
                 {positionType.map((position) => (
                     <option value={position}>
                         {position}
@@ -94,6 +93,7 @@ export default function TableE() {
                     <th>Email</th>
                     <th>Telefono</th>
                     <th>Nacionalidad</th>
+                    <th>Salario</th>
                     <th>Edad</th>
                     <th>Tipo de contrato</th>
                     <th>Posicion</th>
@@ -109,7 +109,8 @@ export default function TableE() {
                         <td>{employee.email}</td>
                         <td>{employee.phoneNumber}</td>
                         <td>{employee.nationality}</td>
-                        <td>{employee.age}</td>
+                        <td>{employee.salary}</td>
+                        <td>{employee.age} años</td>
                         <td>{employee.contract.contractType}</td>
                         <td>{employee.position.positionType}</td>
                     </tr>
