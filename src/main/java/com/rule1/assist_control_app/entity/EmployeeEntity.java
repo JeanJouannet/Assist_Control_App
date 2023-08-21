@@ -17,9 +17,6 @@ public class EmployeeEntity {
     @Column(name = "rut")
     private String rut;
 
-    @Column(name = "salary")
-    private Integer salary;
-
     @Column(name = "name")
     private String name;
 
@@ -52,9 +49,8 @@ public class EmployeeEntity {
     @JoinColumn(name = "fk_contract_id")
     private ContractEntity contract;
 
-    public EmployeeEntity(String rut, Integer salary, String name, String surname, String secondSurname, String phoneNumber, LocalDate birthday, Integer age, String nationality, PositionEntity position, ContractEntity contract) {
+    public EmployeeEntity(String rut, String name, String surname, String secondSurname, String phoneNumber, LocalDate birthday, Integer age, String nationality, PositionEntity position, ContractEntity contract) {
         this.rut = rut;
-        this.salary = salary;
         this.name = name;
         this.surname = surname;
         this.secondSurname = secondSurname;
@@ -79,14 +75,6 @@ public class EmployeeEntity {
 
     public void setRut(String rut) {
         this.rut = rut;
-    }
-
-    public Integer getSalary() {
-        return salary;
-    }
-
-    public void setSalary(Integer salary) {
-        this.salary = salary;
     }
 
     public String getName() {

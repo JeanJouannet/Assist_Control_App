@@ -9,7 +9,6 @@ public class BuildEntityEmployee {
     public EmployeeEntity buildEmployee(EmployeeDTO employeeDTO){
         return new EmployeeEntity(
                 employeeDTO.rut(),
-                employeeDTO.salary(),
                 employeeDTO.name(),
                 employeeDTO.surname(),
                 employeeDTO.secondSurname(),

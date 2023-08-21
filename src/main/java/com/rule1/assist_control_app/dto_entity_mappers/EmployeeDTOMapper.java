@@ -11,8 +11,8 @@ public class EmployeeDTOMapper implements Function<EmployeeEntity, EmployeeDTO> 
     @Override
     public EmployeeDTO apply(EmployeeEntity employeeEntity) {
         return new EmployeeDTO(
+                employeeEntity.getEmployeeId(),
                 employeeEntity.getRut(),
-                employeeEntity.getSalary(),
                 employeeEntity.getName(),
                 employeeEntity.getSurname(),
                 employeeEntity.getSecondSurname(),

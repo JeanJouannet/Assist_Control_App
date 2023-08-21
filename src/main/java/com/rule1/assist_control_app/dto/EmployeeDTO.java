@@ -8,8 +8,8 @@ import org.hibernate.validator.constraints.Length;
 import java.time.LocalDate;
 
 public record EmployeeDTO(
+        @NotNull Long employeeId,
         @NotEmpty @NotNull String rut,
-        @Min(0) @Max(99_999_999) Integer salary,
         @NotEmpty @NotNull String name,
         @NotEmpty @NotNull String surname,
         String secondSurname,
