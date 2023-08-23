@@ -2,6 +2,7 @@ package com.rule1.assist_control_app.controller;
 
 import com.rule1.assist_control_app.dto.EmployeeDTO;
 import com.rule1.assist_control_app.entity.EmployeeEntity;
+import com.rule1.assist_control_app.exception.NotFoundException;
 import com.rule1.assist_control_app.service.impl.EmployeeServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -41,6 +42,15 @@ public class EmployeeController {
     @PostMapping("/addEmployee")
     public ResponseEntity<EmployeeEntity> saveEmployee(@RequestBody EmployeeDTO employeeDTO) {
         return ResponseEntity.ok(employeeServiceImpl.saveEmployee(employeeDTO));
+    }
+
+    //NotFoundException de prueba.
+    @CrossOrigin
+    @DeleteMapping("/deleteEmployeeByRut/{rut}")
+    public ResponseEntity<String> deleteEmployeeByRut(@PathVariable("rut") String rut) {
+        employeeServiceImpl.deleteEmployeeByRut(rut)
+                .orElseThrow(() -> new NotFoundException("Rut not found: "+rut));
+        return ResponseEntity.ok("Employee " + rut + " eliminado.");
     }
 
 

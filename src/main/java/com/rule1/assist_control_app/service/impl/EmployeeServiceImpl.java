@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -35,6 +36,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeEntity saveEmployee(EmployeeDTO employeeDTO) {
+        Optional<EmployeeEntity> existingEmployee = repository.findByRut(employeeDTO.rut());
+        if (existingEmployee.isPresent()) {
+            throw new RuntimeException("Rut already exist in another employee");
+        }
         return repository.save(buildEmployeeEntity.buildEmployee(employeeDTO));
     }
 
@@ -72,6 +77,15 @@ public class EmployeeServiceImpl implements EmployeeService {
             }
         }
         return empPosition;
+    }
+
+    @Override
+    public Optional<EmployeeEntity> deleteEmployeeByRut(String rut) {
+        Optional<EmployeeEntity> employeeToDelete = repository.findByRut(rut);
+        if (employeeToDelete.isPresent()){
+            repository.delete(employeeToDelete.get());
+        }
+        return employeeToDelete;
     }
 
 }

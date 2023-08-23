@@ -31,7 +31,6 @@ export default function TableE() {
             .catch((error) => console.error("Error fetching position types:", error));
     }
 
-    //HAce un fetch a la api segun la ruta, y la actualiza cuando esta cambia
     useEffect(() => {
         fetchDataEmployees(route);
     }, [route]);
@@ -44,6 +43,21 @@ export default function TableE() {
     useEffect(() => {
         fetchDataPositions();
     }, [])
+
+    const FunRemove=((rut)=>{
+        if(window.confirm("Desea borrar empleado?")){
+            fetch("http://localhost:8080/Assist_Control/deleteEmployeeByRut/"+rut,
+                {method:"DELETE"}).then(()=>{
+
+                window.location.reload();
+
+            }).catch((err)=>{
+                console.log(err.message)
+            })
+        }
+
+    })
+
 
     const handleButtonClick = () => {
         setRoute("http://localhost:8080/Assist_Control/employees");
@@ -113,6 +127,7 @@ export default function TableE() {
                         <td>{employee.age} años</td>
                         <td>{employee.contract.contractType}</td>
                         <td>{employee.position.positionType}</td>
+                        <td><button onClick={()=> {FunRemove(employee.rut)}}>Borrar</button></td>
                     </tr>
                 ))}
                 </tbody>

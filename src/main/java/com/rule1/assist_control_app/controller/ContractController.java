@@ -21,6 +21,7 @@ public class ContractController {
     @CrossOrigin
     @PostMapping("/saveNewContract")
     public ResponseEntity<ContractEntity> saveNewContract(@RequestBody ContractDTO contractDTO) {
+
         return ResponseEntity.ok(contractServiceImpl.saveNewContract(contractDTO));
     }
 
@@ -39,6 +40,6 @@ public class ContractController {
     @DeleteMapping("/deleteContractByName/{name}")
     public ResponseEntity<String> deleteContractByName(@PathVariable("name") String name) {
         contractServiceImpl.deleteContractByName(name);
-        return ResponseEntity.ok("Contratos eliminados con contactType: " + name);
+        return ResponseEntity.ok("Contratos eliminados con contractType: " + name);
     }
 }
