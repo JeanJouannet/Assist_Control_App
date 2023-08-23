@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./InsertForm.css"
 
 export default function InsertForm() {
-    const [contract, setContract] = useState([])
-    const [position, setPosition] = useState([])
+    const [contract, setContract] = useState([]);
+    const [position, setPosition] = useState([]);
+    const [input, setInput] = useState("");
 
     const fetchDataContracts = () => {
         fetch("http://localhost:8080/Assist_Control/getUniqueContracts")
@@ -31,42 +32,65 @@ export default function InsertForm() {
         fetchDataPositions();
     }, [])
 
-    const submitForm = (e) => {
-        // e.preventDefault()
-        const formData = new FormData(e.target)
-        const payload = Object.fromEntries(formData)
-        console.log({payload})
+    ///////////////////////////// fetch to contract data and positions ends here //////////////////////////////////////
 
+    const form = useRef(null)
+
+    const sendData = (employee) => {
+        console.log(employee)
         fetch("http://localhost:8080/Assist_Control/addEmployee", {
             method: 'POST',
-            body: JSON.stringify(payload),
+            body: JSON.stringify(employee),
             headers: {
                 'Content-Type': 'application/json'
             }
-        }).then((res) => res.json()).catch((err) => {
+        }).then(
+            () => {
+                setInput("");
+                window.alert("Empleado añadido");
+            },
+            (res) => res.json().catch((err) => {
             console.log(err.message);
-        });
-
+        })
+        )
     }
+    const handleSubmit = () => {
+        const formData = new FormData(form.current);
+        const employee = {
+            "rut": formData.get("rut"),
+            "name": formData.get("name"),
+            "surname": formData.get("surname"),
+            "secondSurname": formData.get("secondSurname"),
+            "email": formData.get("email"),
+            "phoneNumber": formData.get("phoneNumber"),
+            "birthday": formData.get("birthday"),
+            "nationality": formData.get("salary"),
+            "position": {"positionType":  formData.get("position")},
+            "contract": {"contractType":  formData.get("contract")},
+        }
+        sendData(employee);
+    }
+
+
 
     return(
         <div className="container-insertemployee">
-           <form onSubmit={submitForm}>
+           <form ref={form}>
                <div>
                <h2>Agregar empleados</h2>
                </div>
                <div className="container-form-content">
                    <div>
                    <label htmlFor="rut">Rut</label>
-                   <input type="text" name="rut" placeholder="Ingrese rut" required/>
+                   <input type="text" name="rut"  placeholder="Ingrese rut" required/>
                    </div>
                    <div>
                        <label htmlFor="name">Nombre</label>
-                       <input type="text" name="name" placeholder="Ingrese nombre" required/>
+                       <input type="text" name="name"  placeholder="Ingrese nombre" required/>
                    </div>
                    <div>
                        <label htmlFor="surname">Apellido</label>
-                       <input type="text" name="surname" placeholder="Ingrese apellido" required/>
+                       <input type="text" name="surname"  placeholder="Ingrese apellido" required/>
                    </div>
                    <div>
                        <label htmlFor="secondSurname">Segundo Apellido</label>
@@ -117,7 +141,7 @@ export default function InsertForm() {
                            ))}
                        </select>
                    </div>
-                   <button type="submit">Ingresar</button>
+                   <button type="button" onClick={handleSubmit}>Ingresar</button>
                </div>
            </form>
         </div>

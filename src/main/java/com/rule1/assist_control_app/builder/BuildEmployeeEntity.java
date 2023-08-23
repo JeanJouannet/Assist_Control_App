@@ -1,4 +1,4 @@
-package com.rule1.assist_control_app.dto_entity_mappers;
+package com.rule1.assist_control_app.builder;
 
 import com.rule1.assist_control_app.dto.EmployeeDTO;
 import com.rule1.assist_control_app.entity.EmployeeEntity;

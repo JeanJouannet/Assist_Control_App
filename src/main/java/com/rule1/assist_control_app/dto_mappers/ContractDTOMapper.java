@@ -1,9 +1,7 @@
-package com.rule1.assist_control_app.dto_entity_mappers;
+package com.rule1.assist_control_app.dto_mappers;
 
 import com.rule1.assist_control_app.dto.ContractDTO;
-import com.rule1.assist_control_app.dto.EmployeeDTO;
 import com.rule1.assist_control_app.entity.ContractEntity;
-import com.rule1.assist_control_app.entity.EmployeeEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.function.Function;

@@ -1,0 +1,56 @@
+.container-insertemployee {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.container-insertemployee h2 {
+    margin-bottom: 10px;
+}
+
+.container-insertemployee form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.container-insertemployee label {
+    font-weight: bold;
+}
+
+.container-insertemployee input[type="text"],
+.container-insertemployee input[type="email"],
+.container-insertemployee input[type="number"],
+.container-insertemployee select,
+.container-insertemployee input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.container-insertemployee select {
+    width: 100%;
+}
+
+.container-insertemployee button[type="submit"] {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.container-insertemployee button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.container-form-content label {
+    font-weight: bold;
+    display: block;
+    margin: 5px;
+}
+

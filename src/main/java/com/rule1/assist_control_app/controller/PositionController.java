@@ -2,7 +2,7 @@ package com.rule1.assist_control_app.controller;
 
 import com.rule1.assist_control_app.dto.PositionDTO;
 import com.rule1.assist_control_app.entity.PositionEntity;
-import com.rule1.assist_control_app.service.PositionService;
+import com.rule1.assist_control_app.service.impl.PositionServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,27 +12,27 @@ import java.util.List;
 @RequestMapping("/Assist_Control/")
 public class PositionController {
 
-    private final PositionService positionService;
+    private final PositionServiceImpl positionServiceImpl;
 
-    public PositionController(PositionService positionService) {
-        this.positionService = positionService;
+    public PositionController(PositionServiceImpl positionServiceImpl) {
+        this.positionServiceImpl = positionServiceImpl;
     }
 
 
     @CrossOrigin
     @PostMapping("/saveNewPosition")
     public ResponseEntity<PositionEntity> saveNewPosition (@RequestBody PositionDTO positionDTO) {
-        return ResponseEntity.ok(positionService.saveNewPosition(positionDTO));
+        return ResponseEntity.ok(positionServiceImpl.saveNewPosition(positionDTO));
     }
     @CrossOrigin
     @GetMapping("/positions")
     public ResponseEntity<List<PositionDTO>> positions() {
-        return ResponseEntity.ok(positionService.getAllPositions());
+        return ResponseEntity.ok(positionServiceImpl.getAllPositions());
     }
 
     @CrossOrigin
     @GetMapping("/getUniquePositions")
     public ResponseEntity<List<String>> uniqueContracts() {
-        return ResponseEntity.ok(positionService.getUniquePositionTypes());
+        return ResponseEntity.ok(positionServiceImpl.getUniquePositionTypes());
     }
 }

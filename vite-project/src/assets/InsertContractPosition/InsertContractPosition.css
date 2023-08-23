@@ -1,0 +1,42 @@
+.container-insertContractPosition {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.container-insertContractPosition h2 {
+    margin-bottom: 10px;
+}
+
+.container-insertContractPosition form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.container-insertContractPosition label {
+    font-weight: bold;
+    display: block;
+    margin: 5px;
+}
+
+.container-insertContractPosition input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.container-insertContractPosition button[type="submit"] {
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.container-insertContractPosition button[type="submit"]:hover {
+    background-color: #0056b3;
+}

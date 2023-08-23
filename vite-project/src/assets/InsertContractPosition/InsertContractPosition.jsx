@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./InsertContractPosition.css";
 
 export default function InsertContractPosition({route, item, name}){
-
+    const placeHolder = `Ingrese ${name}`
     const submitForm = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         const formData = new FormData(e.target)
         const payload = Object.fromEntries(formData)
         console.log({payload})
@@ -21,15 +21,15 @@ export default function InsertContractPosition({route, item, name}){
     }
 
     return(
-        <div>
+        <div className="container-insertContractPosition">
             <form onSubmit={submitForm}>
-                 <h2>Agregar Posicion</h2>
+                 <h2>Agregar {name}</h2>
                 <div>
-                    <label htmlFor={item}>{name}</label>
-                    <input type="text" key={item} name={item} placeholder={name} required/>
+                    <label htmlFor={item}>Ingrese {name}</label>
+                    <input type="text" key={item} name={item} placeholder={placeHolder} required/>
                 </div>
                 <div>
-                    <button type="submit">Agregar nuevo contrato</button>
+                    <button type="submit">Agregar {name}</button>
                 </div>
             </form>
         </div>)

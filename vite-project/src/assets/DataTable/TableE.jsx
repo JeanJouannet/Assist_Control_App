@@ -60,7 +60,7 @@ export default function TableE() {
     }
 
     return (
-        <div>
+        <div className="container-table">
             <h2>Mostrar empleados</h2>
             <button onClick={handleButtonClick}>Buscar todos los empleados</button>
 

@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ContractRepository extends JpaRepository<ContractEntity, Long> {
 
+    void deleteContractEntitiesByContractType(String s);
 }
