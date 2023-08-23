@@ -44,20 +44,18 @@ export default function TableE() {
         fetchDataPositions();
     }, [])
 
-    const FunRemove=((rut)=>{
-        if(window.confirm("Desea borrar empleado?")){
-            fetch("http://localhost:8080/Assist_Control/deleteEmployeeByRut/"+rut,
-                {method:"DELETE"}).then(()=>{
+    const FunRemove = (rut) => {
+        if (window.confirm("Desea borrar empleado?")) {
+            fetch("http://localhost:8080/Assist_Control/deleteEmployeeByRut/" + rut,
+                { method: "DELETE" }).then(() => {
 
                 window.location.reload();
 
-            }).catch((err)=>{
+            }).catch((err) => {
                 console.log(err.message)
             })
         }
-
-    })
-
+    };
 
     const handleButtonClick = () => {
         setRoute("http://localhost:8080/Assist_Control/employees");
@@ -134,5 +132,5 @@ export default function TableE() {
             </table>
         </div>
     );
-}
+    }
 
