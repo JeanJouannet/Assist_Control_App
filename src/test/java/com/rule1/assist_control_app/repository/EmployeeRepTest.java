@@ -9,10 +9,10 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import java.time.LocalDate;
 import static org.assertj.core.api.Assertions.assertThat;
 
-
+@DataJpaTest
 public class EmployeeRepTest {
 
-
+@Autowired
 private  EmployeeRepository employeeRepository;
 
 
